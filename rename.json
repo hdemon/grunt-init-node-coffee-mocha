@@ -1,4 +1,4 @@
 {
-  "lib/name.js": "lib/{%= name %}.js",
-  "test/name_test.js": "test/{%= name %}_test.js"
+  "lib/name.coffee": "lib/{%= name %}.coffee",
+  "test/name_test.coffee": "test/{%= name %}_test.coffee"
 }
