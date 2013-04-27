@@ -56,6 +56,11 @@ exports.template = function(grunt, init, done) {
       'grunt-contrib-coffee': '~0.7',
       'grunt-contrib-watch': '~0.2.0',
       'grunt-simple-mocha': '~0.4',
+      'mocha': '*',
+      'sinon': '*',
+      'chai': '*',
+      'sinon-chai': '*',
+      'scaffolt': '*'
     };
     // TODO: compute dynamically?
     props.travis = /y/i.test(props.travis);

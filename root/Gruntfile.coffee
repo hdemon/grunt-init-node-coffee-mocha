@@ -27,8 +27,11 @@ module.exports = (grunt) ->
         tasks: ["coffee:lib"]
 
       test:
-        files: "<%= coffee.test.src %>"
-        tasks: ["coffee:test", "test"]
+        files: [
+          "<%= coffee.lib.src %>"
+          "<%= coffee.test.src %>"
+        ]
+        tasks: ["coffee", "test"]
 
     simplemocha:
       all:
@@ -36,7 +39,7 @@ module.exports = (grunt) ->
         options:
           timeout: 3000
           ignoreLeaks: false
-          ui: 'tdd'
+          ui: 'bdd'
           compilers: 'coffee:coffee-script'
 
 

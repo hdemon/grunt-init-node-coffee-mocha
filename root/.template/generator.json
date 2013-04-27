@@ -1,0 +1,16 @@
+{
+  "files": [
+    {
+      "from": "source.coffee.hbs",
+      "to": "lib/{{name}}.coffee"
+    },
+    {
+      "from": "test.coffee.hbs",
+      "to": "test/{{name}}_test.coffee"
+    }
+  ],
+
+  "dependencies": [
+    {"name": "source", "params": "{{name}}"}
+  ]
+}
