@@ -60,7 +60,6 @@ exports.template = function(grunt, init, done) {
       'sinon': '*',
       'chai': '*',
       'sinon-chai': '*',
-      'scaffolt': '*'
     };
     // TODO: compute dynamically?
     props.travis = /y/i.test(props.travis);
