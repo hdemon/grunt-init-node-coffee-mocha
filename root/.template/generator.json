@@ -6,7 +6,7 @@
     },
     {
       "from": "test.coffee.hbs",
-      "to": "test/{{name}}_test.coffee"
+      "to": "test/{{name}}.coffee"
     }
   ],
 
