@@ -13,14 +13,6 @@ module.exports = (grunt) ->
         dest: "dest"
         ext: ".js"
 
-      test:
-        options:
-          bare: true
-        expand: true
-        src: ["test/**/*.coffee"]
-        dest: "test"
-        ext: ".js"
-
     watch:
       lib:
         files: "<%= coffee.lib.src %>"
