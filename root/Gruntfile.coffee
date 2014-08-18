@@ -1,44 +1,38 @@
-"use strict"
 module.exports = (grunt) ->
+  require('load-grunt-tasks')(grunt)
 
-  # Project configuration.
   grunt.initConfig
     coffee:
-      lib:
-        options:
-          bare: true
-          sourceMap: true
-        expand: true
-        src: ["lib/**/*.coffee"]
-        dest: "dest"
-        ext: ".js"
+      source:
+        expand: true,
+        cwd: 'lib/',
+        src: ['**/*.coffee'],
+        dest: 'dist/',
+        ext: '.js'
 
     watch:
-      lib:
-        files: "<%= coffee.lib.src %>"
-        tasks: ["coffee:lib"]
-
       test:
         files: [
-          "<%= coffee.lib.src %>"
-          "<%= coffee.test.src %>"
+          "lib/**/*.coffee"
+          "<%= mochaTest.all.src %>"
         ]
-        tasks: ["coffee", "test"]
+      options:
+        spawn: false
 
-    simplemocha:
+    mochaTest:
       all:
-        src: ['test/**/*.coffee']
         options:
-          timeout: 3000
-          ignoreLeaks: false
+          reporter: 'spec'
+          clearRequireCache: true
+          timeout: 5000
           ui: 'bdd'
-          compilers: 'coffee:coffee-script'
+          require: 'coffee-script/register'
+          compilers: 'coffee:coffee-script/register'
+        src: ['test/**/*.coffee']
 
-
-  # These plugins provide necessary tasks.
-  grunt.loadNpmTasks "grunt-contrib-coffee"
-  grunt.loadNpmTasks "grunt-contrib-watch"
-  grunt.loadNpmTasks "grunt-simple-mocha"
+  grunt.event.on 'watch', (action, filepath) ->
+    grunt.config 'mochaTest.all.src', [filepath]
+    grunt.task.run "mochaTest"
 
   grunt.registerTask "default", ["watch"]
-  grunt.registerTask "test", ["simplemocha"]
+  grunt.registerTask "build", ["coffee:source"]

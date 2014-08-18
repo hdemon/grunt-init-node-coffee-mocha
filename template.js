@@ -53,9 +53,10 @@ exports.template = function(grunt, init, done) {
   ], function(err, props) {
     props.keywords = [];
     props.devDependencies = {
+      'load-grunt-tasks': '*',
       'grunt-contrib-coffee': '~0.7',
-      'grunt-contrib-watch': '~0.2.0',
-      'grunt-simple-mocha': '~0.4',
+      'grunt-contrib-watch': '*',
+      'grunt-mocha-test': '*',
       'mocha': '*',
       'sinon': '*',
       'chai': '*',
