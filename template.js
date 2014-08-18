@@ -57,6 +57,7 @@ exports.template = function(grunt, init, done) {
       'grunt-contrib-coffee': '~0.7',
       'grunt-contrib-watch': '*',
       'grunt-mocha-test': '*',
+      'coffee-script': '*',
       'mocha': '*',
       'sinon': '*',
       'chai': '*',
